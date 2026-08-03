@@ -8,14 +8,13 @@ Je suis étudiant en licence 2 en Génie Informatique à l'université BAZO de B
 Je développe progressivement mes compétences en développement logiciel, développement web et bases de données.
 
 ### Compétences
-
--JavaScript
--HTML
--CSS
--Python (débutant)
+- C
+- C++
+- HTML
+- CSS
+- JavaScript
+- Python (débutant)
 - Git & GitHub
-- Algorithmique
-- Base de données
 
 ### Mes objectifs
 - Devenir développeur logiciel.
