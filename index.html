@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DAMA Seydou — Développeur & Étudiant en Génie Informatique</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,900&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+:root{
+  --cloth: #E8D8B4;
+  --cloth-dark: #DCC79A;
+  --dye-dark: #241A12;
+  --dye-brown: #5A3A26;
+  --rust: #A54A2C;
+  --ochre: #C6862C;
+  --cream: #F4EAD2;
+  --ink: #241A12;
+}
+
+*{box-sizing:border-box; margin:0; padding:0;}
+
+html{scroll-behavior:smooth;}
+
+body{
+  background-color: var(--cloth);
+  color: var(--ink);
+  font-family: 'Work Sans', sans-serif;
+  line-height:1.6;
+  overflow-x:hidden;
+}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
+}
+
+/* ---------- bogolan motif backgrounds (SVG data patterns) ---------- */
+
+.motif-band{
+  height:22px;
+  width:100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='22' viewBox='0 0 44 22'%3E%3Cpath d='M0 22 L11 0 L22 22 L33 0 L44 22' fill='none' stroke='%23241A12' stroke-width='2.5'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-size: 44px 22px;
+}
+
+.motif-band.light{
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='22' viewBox='0 0 44 22'%3E%3Cpath d='M0 22 L11 0 L22 22 L33 0 L44 22' fill='none' stroke='%23F4EAD2' stroke-width='2.5'/%3E%3C/svg%3E");
+}
+
+.cloth-texture{
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(90,58,38,0.05) 0, transparent 45%),
+    radial-gradient(circle at 80% 70%, rgba(165,74,44,0.06) 0, transparent 40%);
+}
+
+/* ---------- header / nav ---------- */
+
+header{
+  position:fixed; top:0; left:0; right:0; z-index:50;
+  background: rgba(232,216,180,0.92);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(36,26,18,0.15);
+}
+nav{
+  max-width:1100px; margin:0 auto;
+  display:flex; align-items:center; justify-content:space-between;
+  padding: 16px 28px;
+}
+.logo{
+  font-family:'Fraunces', serif; font-weight:700; font-size:1.15rem;
+  letter-spacing:0.02em;
+}
+.logo span{color:var(--rust);}
+nav ul{
+  list-style:none; display:flex; gap:28px;
+}
+nav a{
+  color:var(--ink); text-decoration:none; font-size:0.92rem; font-weight:500;
+  position:relative;
+}
+nav a::after{
+  content:''; position:absolute; left:0; bottom:-4px; height:2px; width:0;
+  background:var(--rust); transition:width 0.25s ease;
+}
+nav a:hover::after{width:100%;}
+
+/* ---------- hero ---------- */
+
+.hero{
+  min-height:100vh;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  text-align:center;
+  padding: 120px 24px 60px;
+  position:relative;
+}
+
+.hero-eyebrow{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:0.8rem; letter-spacing:0.18em; text-transform:uppercase;
+  color:var(--rust); margin-bottom:18px;
+}
+
+.hero h1{
+  font-family:'Fraunces', serif;
+  font-weight:900;
+  font-size:clamp(2.6rem, 8vw, 5.5rem);
+  line-height:0.98;
+  letter-spacing:-0.01em;
+  color:var(--dye-dark);
+}
+
+.hero h1 em{
+  font-style:italic; font-weight:400; color:var(--rust);
+}
+
+.hero-sub{
+  margin-top:22px;
+  max-width:560px;
+  font-size:1.08rem;
+  color:var(--dye-brown);
+}
+
+.hero-links{
+  margin-top:38px;
+  display:flex; gap:16px; flex-wrap:wrap; justify-content:center;
+}
+
+.btn{
+  font-family:'Work Sans', sans-serif;
+  font-weight:600; font-size:0.92rem;
+  padding:13px 28px;
+  border-radius:2px;
+  text-decoration:none;
+  border:1.5px solid var(--dye-dark);
+  transition: all 0.2s ease;
+}
+.btn-fill{
+  background:var(--dye-dark); color:var(--cream);
+}
+.btn-fill:hover{background:var(--rust); border-color:var(--rust);}
+.btn-outline{
+  color:var(--dye-dark); background:transparent;
+}
+.btn-outline:hover{background:var(--dye-dark); color:var(--cream);}
+
+.hero-diamond{
+  margin-top:56px;
+  width:14px; height:14px;
+  background:var(--rust);
+  transform:rotate(45deg);
+}
+
+/* ---------- section shell ---------- */
+
+section{
+  max-width:980px; margin:0 auto;
+  padding: 90px 28px;
+}
+
+.section-label{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:0.78rem; letter-spacing:0.16em; text-transform:uppercase;
+  color:var(--rust); margin-bottom:14px;
+  display:flex; align-items:center; gap:10px;
+}
+.section-label::before{
+  content:''; width:22px; height:2px; background:var(--rust);
+}
+
+h2.section-title{
+  font-family:'Fraunces', serif; font-weight:700;
+  font-size:clamp(1.8rem, 4vw, 2.6rem);
+  color:var(--dye-dark);
+  margin-bottom:28px;
+  max-width:640px;
+}
+
+/* ---------- about ---------- */
+
+.about-grid{
+  display:grid; grid-template-columns: 1.3fr 1fr; gap:48px; align-items:start;
+}
+.about-text p{color:var(--dye-brown); margin-bottom:16px; font-size:1.02rem;}
+
+.about-card{
+  background:var(--cream);
+  border:1.5px solid var(--dye-dark);
+  padding:26px;
+  position:relative;
+}
+.about-card::before{
+  content:'';
+  position:absolute; top:8px; left:8px; right:8px; bottom:8px;
+  border:1px solid var(--rust);
+  pointer-events:none;
+}
+.about-card dl{display:grid; grid-template-columns: auto 1fr; gap:10px 16px; font-size:0.92rem;}
+.about-card dt{font-family:'IBM Plex Mono', monospace; color:var(--rust); font-weight:500;}
+.about-card dd{color:var(--dye-brown);}
+
+@media (max-width:760px){
+  .about-grid{grid-template-columns:1fr;}
+}
+
+/* ---------- featured project — styled as a "bulletin" / transcript ---------- */
+
+.bulletin{
+  background:var(--cream);
+  border:2px solid var(--dye-dark);
+  position:relative;
+}
+.bulletin-head{
+  display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;
+  padding:22px 28px;
+  border-bottom:2px solid var(--dye-dark);
+  background: repeating-linear-gradient(135deg, transparent, transparent 8px, rgba(165,74,44,0.06) 8px, rgba(165,74,44,0.06) 16px);
+}
+.bulletin-head h3{
+  font-family:'Fraunces', serif; font-size:1.5rem; color:var(--dye-dark);
+}
+.bulletin-tag{
+  font-family:'IBM Plex Mono', monospace; font-size:0.75rem;
+  background:var(--dye-dark); color:var(--cream);
+  padding:5px 12px; letter-spacing:0.05em;
+}
+.bulletin-body{padding:28px;}
+.bulletin-body > p{color:var(--dye-brown); margin-bottom:24px; max-width:620px;}
+
+.module-table{
+  width:100%; border-collapse:collapse; font-size:0.92rem;
+}
+.module-table th{
+  font-family:'IBM Plex Mono', monospace; font-weight:500; font-size:0.72rem;
+  text-transform:uppercase; letter-spacing:0.08em;
+  text-align:left; color:var(--rust);
+  padding:8px 10px; border-bottom:1.5px solid var(--dye-dark);
+}
+.module-table td{
+  padding:12px 10px; border-bottom:1px solid rgba(36,26,18,0.15);
+  color:var(--dye-brown); vertical-align:top;
+}
+.module-table tr:last-child td{border-bottom:none;}
+.grade-pill{
+  display:inline-block; font-family:'IBM Plex Mono', monospace; font-size:0.75rem;
+  background:var(--ochre); color:var(--dye-dark); padding:2px 9px; font-weight:500;
+}
+
+.bulletin-footer{
+  padding:18px 28px; border-top:1.5px dashed var(--dye-brown);
+  display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;
+}
+.stack-list{display:flex; gap:8px; flex-wrap:wrap;}
+.stack-chip{
+  font-family:'IBM Plex Mono', monospace; font-size:0.72rem;
+  border:1px solid var(--dye-brown); color:var(--dye-brown);
+  padding:4px 10px;
+}
+.project-link{
+  font-weight:600; font-size:0.88rem; color:var(--rust); text-decoration:none;
+  border-bottom:1.5px solid var(--rust);
+}
+
+/* ---------- other projects ---------- */
+
+.other-projects{
+  margin-top:36px;
+  display:grid; grid-template-columns:1fr 1fr; gap:20px;
+}
+.mini-card{
+  background:var(--cloth-dark);
+  border:1px solid var(--dye-brown);
+  padding:22px;
+}
+.mini-card h4{
+  font-family:'Fraunces', serif; font-size:1.15rem; margin-bottom:8px; color:var(--dye-dark);
+}
+.mini-card p{font-size:0.9rem; color:var(--dye-brown); margin-bottom:12px;}
+
+@media (max-width:760px){
+  .other-projects{grid-template-columns:1fr;}
+  .module-table{font-size:0.82rem;}
+}
+
+/* ---------- skills — woven grid ---------- */
+
+.skill-weave{
+  display:grid; grid-template-columns:repeat(auto-fit, minmax(150px,1fr)); gap:2px;
+  border:2px solid var(--dye-dark);
+}
+.skill-cell{
+  background:var(--cream);
+  padding:22px 18px;
+  border:1px solid rgba(36,26,18,0.12);
+  position:relative;
+}
+.skill-cell:nth-child(odd){background: var(--cloth-dark);}
+.skill-cat{
+  font-family:'IBM Plex Mono', monospace; font-size:0.68rem; text-transform:uppercase;
+  letter-spacing:0.1em; color:var(--rust); margin-bottom:8px; display:block;
+}
+.skill-cell strong{
+  font-family:'Fraunces', serif; font-size:1.05rem; color:var(--dye-dark); display:block;
+}
+
+/* ---------- contact ---------- */
+
+.contact-wrap{
+  text-align:center;
+}
+.contact-wrap p{color:var(--dye-brown); max-width:520px; margin:0 auto 30px;}
+.contact-links{
+  display:flex; gap:22px; justify-content:center; flex-wrap:wrap;
+}
+.contact-links a{
+  font-family:'Fraunces', serif; font-size:1.15rem;
+  color:var(--dye-dark); text-decoration:none;
+  padding-bottom:4px; border-bottom:2px solid transparent;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+.contact-links a:hover{border-color:var(--rust); color:var(--rust);}
+
+footer{
+  text-align:center; padding:36px 24px 44px;
+  font-family:'IBM Plex Mono', monospace; font-size:0.78rem;
+  color:var(--dye-brown);
+}
+
+/* fade-in on scroll */
+.reveal{
+  opacity:0; transform:translateY(18px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible{opacity:1; transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<div class="motif-band"></div>
+
+<header>
+  <nav>
+    <div class="logo">DAMA<span>.</span>SEYDOU</div>
+    <ul>
+      <li><a href="#about">À propos</a></li>
+      <li><a href="#projet">Projet</a></li>
+      <li><a href="#competences">Compétences</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero cloth-texture">
+  <div class="hero-eyebrow">Bamako, Mali — Génie Informatique</div>
+  <h1>DAMA <em>Seydou</em></h1>
+  <p class="hero-sub">Étudiant en Licence 2 à l'Université BAZO, je développe des logiciels et applications web — avec une préférence pour tout ce qui touche à la gestion des données académiques.</p>
+  <div class="hero-links">
+    <a href="#projet" class="btn btn-fill">Voir le projet</a>
+    <a href="https://github.com/damaseydou-dev" class="btn btn-outline" target="_blank" rel="noopener">GitHub ↗</a>
+  </div>
+  <div class="hero-diamond"></div>
+</section>
+
+<div class="motif-band"></div>
+
+<section id="about" class="reveal">
+  <div class="section-label">À propos</div>
+  <h2 class="section-title">Du code, pensé pour l'usage réel</h2>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>Je suis étudiant en Licence 2 en Génie Informatique à l'Université BAZO de Bamako, et je prépare actuellement mon passage en L3. Je m'intéresse aux nouvelles technologies et je développe progressivement mes compétences en développement logiciel, développement web et bases de données.</p>
+      <p>Mon travail s'articule autour d'un objectif simple : construire des outils qui répondent à des besoins concrets, en particulier pour les établissements scolaires et universitaires en Afrique de l'Ouest où les solutions numériques adaptées restent rares.</p>
+    </div>
+    <div class="about-card">
+      <dl>
+        <dt>Basé à</dt><dd>Bamako, Mali</dd>
+        <dt>Formation</dt><dd>Génie Informatique, L2 → L3</dd>
+        <dt>Université</dt><dd>Université BAZO</dd>
+        <dt>Objectif</dt><dd>Master (M.Tech) en Inde</dd>
+        <dt>Langues</dt><dd>Français, Bambara</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section id="projet" class="reveal">
+  <div class="section-label">Projet principal</div>
+  <h2 class="section-title">Plateforme de gestion scolaire & universitaire</h2>
+
+  <div class="bulletin">
+    <div class="bulletin-head">
+      <h3>Bulletin du projet</h3>
+      <span class="bulletin-tag">PYTHON · DJANGO</span>
+    </div>
+    <div class="bulletin-body">
+      <p>Un système complet de gestion académique, conçu comme mémoire de fin de cycle. Il couvre l'ensemble du parcours étudiant : de l'inscription jusqu'au relevé de notes officiel.</p>
+      <table class="module-table">
+        <thead>
+          <tr><th>Module</th><th>Description</th><th>Statut</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Authentification</td>
+            <td>Accès par rôles (administration, enseignants, étudiants)</td>
+            <td><span class="grade-pill">Terminé</span></td>
+          </tr>
+          <tr>
+            <td>Notes & évaluations</td>
+            <td>Saisie, gestion et calcul des moyennes</td>
+            <td><span class="grade-pill">Terminé</span></td>
+          </tr>
+          <tr>
+            <td>Emploi du temps</td>
+            <td>Planification des cours et des ressources</td>
+            <td><span class="grade-pill">Terminé</span></td>
+          </tr>
+          <tr>
+            <td>Inscriptions</td>
+            <td>Parcours d'inscription et de réinscription</td>
+            <td><span class="grade-pill">Terminé</span></td>
+          </tr>
+          <tr>
+            <td>Module financier</td>
+            <td>Paiements échelonnés et reçus imprimables</td>
+            <td><span class="grade-pill">Terminé</span></td>
+          </tr>
+          <tr>
+            <td>Relevés officiels</td>
+            <td>Bulletins et transcripts avec calcul du GPA</td>
+            <td><span class="grade-pill">Terminé</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="bulletin-footer">
+      <div class="stack-list">
+        <span class="stack-chip">Python</span>
+        <span class="stack-chip">Django</span>
+        <span class="stack-chip">MySQL</span>
+        <span class="stack-chip">HTML/CSS</span>
+      </div>
+      <a href="https://github.com/damaseydou-dev" class="project-link" target="_blank" rel="noopener">Voir le code sur GitHub →</a>
+    </div>
+  </div>
+
+  <div class="other-projects">
+    <div class="mini-card">
+      <h4>Liste de tâches — Django</h4>
+      <p>Application de gestion de tâches avec modèles, vues, templates et interface d'administration.</p>
+      <span class="stack-chip">Django</span>
+    </div>
+    <div class="mini-card">
+      <h4>Contact & Auth — PHP</h4>
+      <p>Application web de contact et d'authentification, développée et testée en local avec XAMPP.</p>
+      <span class="stack-chip">PHP</span>
+      <span class="stack-chip">MySQL</span>
+    </div>
+  </div>
+</section>
+
+<section id="competences" class="reveal">
+  <div class="section-label">Compétences</div>
+  <h2 class="section-title">Outils et langages</h2>
+  <div class="skill-weave">
+    <div class="skill-cell"><span class="skill-cat">Langage</span><strong>Python</strong></div>
+    <div class="skill-cell"><span class="skill-cat">Framework</span><strong>Django</strong></div>
+    <div class="skill-cell"><span class="skill-cat">Langage</span><strong>PHP</strong></div>
+    <div class="skill-cell"><span class="skill-cat">Base de données</span><strong>MySQL</strong></div>
+    <div class="skill-cell"><span class="skill-cat">Web</span><strong>HTML / CSS</strong></div>
+    <div class="skill-cell"><span class="skill-cat">Outils</span><strong>Git & GitHub</strong></div>
+  </div>
+</section>
+
+<div class="motif-band light" style="background-color:var(--dye-dark)"></div>
+
+<section id="contact" class="reveal contact-wrap">
+  <div class="section-label" style="justify-content:center;">Contact</div>
+  <h2 class="section-title" style="margin-left:auto; margin-right:auto;">Discutons de votre prochain projet</h2>
+  <p>Ouvert aux échanges autour du développement web, des projets académiques ou de collaborations. N'hésitez pas à me contacter.</p>
+  <div class="contact-links">
+    <a href="https://github.com/damaseydou-dev" target="_blank" rel="noopener">GitHub</a>
+    <a href="mailto:ton.email@exemple.com">Email</a>
+    <a href="#">LinkedIn</a>
+  </div>
+</section>
+
+<footer>
+  © 2026 DAMA Seydou — Bamako, Mali · Conçu et codé à la main
+</footer>
+
+<script>
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); } });
+}, {threshold:0.12});
+revealEls.forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
