@@ -4,7 +4,7 @@ Bienvenue sur mon portfolio GitHub.
 
 ### A propos de moi
 
-Je suis étudiant en licence 2 en Génie Informatique à l'université BAZO de Bamako et les nouvelles technologies, 
+Je suis étudiant en licence 3 en Génie Informatique à l'université BAZO de Bamako et les nouvelles technologies, 
 Je développe progressivement mes compétences en développement logiciel, développement web et bases de données.
 
 ### Compétences
