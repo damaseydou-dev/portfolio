@@ -1,28 +1,49 @@
-# Bonjour, je suis DAMA Seydou
-## Etudiant en Génie Informatique (L2)
-Bienvenue sur mon portfolio GitHub.
+DAMA Seydou — Portfolio
 
-### A propos de moi
+Bienvenue sur mon portfolio GitHub !
 
-Je suis étudiant en licence 3 en Génie Informatique à l'université BAZO de Bamako et les nouvelles technologies, 
-Je développe progressivement mes compétences en développement logiciel, développement web et bases de données.
+Je suis étudiant en Licence 3 de Génie Informatique à l'Université BAZO de Bamako, au Mali. Je m'intéresse au développement logiciel, au développement web et à la conception de bases de données.
 
-### Compétences
+À propos de moi
+
+Je développe progressivement mes compétences à travers mes études et mes projets pratiques. Mon objectif est de concevoir des applications fiables, utiles et adaptées aux besoins des utilisateurs.
+
+Compétences techniques
+
 - C
 - C++
 - HTML
 - CSS
 - JavaScript
-- Python (débutant)
-- Git & GitHub
+- Python
+- Django
+- PHP
+- MySQL
+- Git et GitHub
 
-### Mes objectifs
+Mes projets
+
+Plateforme de gestion scolaire et universitaire
+
+Application web développée avec Python, Django et MySQL. Elle vise à faciliter la gestion des activités académiques.
+
+Autres projets
+
+- Application de gestion de tâches.
+- Application de gestion des contacts et d'authentification.
+
+Retrouvez les détails de mes réalisations dans mon portfolio.
+
+Mes objectifs
+
 - Devenir développeur logiciel.
 - Participer à des projets open source.
-- Réaliser des applications utiles.
+- Concevoir des applications utiles.
 - Obtenir un stage en informatique.
+- Poursuivre mes études en informatique.
 
-  ### Contact
+Contact
 
-  Email : damaseydou177@gmail.com
-  
+- Email : damaseydou177@gmail.com
+- GitHub : "damaseydou-dev" (https://github.com/damaseydou-dev)
+- Portfolio : "Voir mon portfolio" (https://damaseydou-dev.github.io/portfolio)
