@@ -10,8 +10,6 @@ Je développe progressivement mes compétences à travers mes études et mes pro
 
 Compétences techniques
 
-- C
-- C++
 - HTML
 - CSS
 - JavaScript
@@ -44,6 +42,5 @@ Mes objectifs
 
 Contact
 
-- Email : damaseydou177@gmail.com
 - GitHub : "damaseydou-dev" (https://github.com/damaseydou-dev)
 - Portfolio : "Voir mon portfolio" (https://damaseydou-dev.github.io/portfolio)
